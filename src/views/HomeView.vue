@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <v-container
+    class="d-flex align-center justify-center mt-10"
+    :class="mobile && 'flex-column'"
+  >
+    <div class="ma-10">
+      <v-img src="/img/profile.jpg" class="circle-image" />
+    </div>
+
+    <div class="d-flex flex-column align-center justify-center">
+      <h2 class="pa-4">Bem vindo ao site</h2>
+      <v-sheet class="strong pa-4" rounded> <h1>jplsanchez.com.br</h1> </v-sheet>
+    </div>
+  </v-container>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script setup lang="ts">
+import { useDisplay } from "vuetify";
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
+const { mobile } = useDisplay();
 </script>
+
+<style lang="scss">
+$profile-size: 150px;
+
+.circle-image {
+  height: $profile-size;
+  width: $profile-size;
+  border-radius: $profile-size/2;
+}
+</style>
